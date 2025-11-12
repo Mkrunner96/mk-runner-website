@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MK RUNNER PHOTOGRAPHY</title>
+<style>
+/* Global Styles */
+body { font-family: Arial, sans-serif; margin:0; padding:0; background:#f4f6f9; color:#333; }
+a { text-decoration:none; }
+header { background:#0047ab; color:#ffd700; padding:1em 2em; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; position:sticky; top:0; z-index:1000; }
+.logo { font-family:'Brush Script MT', cursive; font-size:1.8em; display:flex; align-items:center; gap:0.5em; }
+.logo img { width:40px; height:40px; }
+nav a { color:#ffd700; margin-left:1em; font-weight:bold; }
+.hero { position:relative; height:90vh; background:url('https://via.placeholder.com/1500x900.png?text=Wedding+Photography') no-repeat center center/cover; display:flex; justify-content:center; align-items:center; flex-direction:column; text-align:center; color:white; }
+.hero::after { content:""; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.35); }
+.hero h1 { position:relative; font-size:3em; z-index:1; }
+.hero p { position:relative; font-size:1.3em; margin:1em 0; z-index:1; }
+.hero .btn { position:relative; z-index:1; padding:0.7em 1.5em; background:#ffd700; color:#0047ab; border-radius:5px; font-weight:bold; }
+
+/* Sections */
+section { padding:3em 2em; max-width:1200px; margin:auto; }
+section h2 { text-align:center; margin-bottom:1em; color:#0047ab; }
+
+/* Footer */
+footer { background:#0047ab; color:#ffd700; text-align:center; padding:1em; }
+
+/* Booking Form */
+form { background:#fff; padding:2em; border-radius:10px; box-shadow:0 0 15px rgba(0,0,0,0.1); max-width:900px; margin:auto; display:grid; grid-template-columns:1fr 1fr; gap:1em; }
+form label { font-weight:bold; margin-top:0.5em; display:block; }
+form input, form select { padding:0.5em; width:100%; border:1px solid #ccc; border-radius:5px; }
+.addons { display:flex; flex-direction:column; }
+.addon-label { display:flex; justify-content:space-between; margin-bottom:0.5em; }
+#priceSummary { grid-column:span 2; margin-top:1em; background:#e6f0ff; padding:1em; border-radius:5px; }
+
+/* Gallery */
+.media-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1em; }
+.media-grid img, .media-grid video { width:100%; border-radius:5px; }
+
+/* Explore Photographers */
+.photographer { background:#fff; padding:1em; border-radius:5px; margin-bottom:1em; box-shadow:0 0 5px rgba(0,0,0,0.1); }
+
+/* Responsive */
+@media(max-width:900px){ form { grid-template-columns:1fr; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><img src="https://via.placeholder.com/40.png?text=📷" alt="Camera">MK RUNNER PHOTOGRAPHY</div>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#explore">Explore</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#bookings">Book</a>
+    <a href="#dashboard">Dashboard</a>
+  </nav>
+</header>
+
+<section id="home" class="hero">
+  <h1>MK RUNNER PHOTOGRAPHY</h1>
+  <p>Capture your moments professionally. Weddings, Portraits, Music Videos & More!</p>
+  <a href="#bookings" class="btn">Book Your Shoot</a>
+</section>
+
+<section id="bookings">
+<h2>Book Your Shoot</h2>
+<form id="bookingForm">
+  <div>
+    <label>Photographer:</label>
+    <select id="photographer">
+      <option value="mk">MK RUNNER PHOTOGRAPHY</option>
+      <option value="other1">Photographer 1</option>
+      <option value="other2">Photographer 2</option>
+    </select>
+
+    <label>Shoot Type:</label>
+    <select id="package">
+      <option value="wedding">Wedding</option>
+      <option value="portrait">Portrait</option>
+      <option value="commercial">Commercial</option>
+      <option value="marooro">Marooro</option>
+      <option value="music">Music Video</option>
+      <option value="trips">Trips</option>
+      <option value="indoors">Indoors</option>
+      <option value="outdoors">Outdoors</option>
+      <option value="fashion">Fashion</option>
+      <option value="events">Events</option>
+      <option value="corporate">Corporate</option>
+      <option value="product">Product/Advertising</option>
+    </select>
+
+    <label>Number of Photos (50 included):</label>
+    <input type="number" id="numPhotos" value="50" min="10">
+
+    <label>Number of Photographers:</label>
+    <input type="number" id="numPhotogs" value="1" min="1">
+
+    <label>Shoot Date:</label>
+    <input type="date" id="shootDate">
+
+    <label>Venue:</label>
+    <input type="text" id="venue" placeholder="Client Venue or MK Studio">
+    <label>Pre-meeting Location:</label>
+    <input type="text" id="preMeeting" placeholder="Pre-meeting Location">
+    
+    <label>Distance (km) from MK Studio:</label>
+    <input type="number" id="distance" value="10" min="0">
+  </div>
+
+  <div class="addons">
+    <label>Add-ons (Optional):</label>
+    <div class="addon-label"><span>Drone</span><input type="checkbox" class="addon" data-price="20"></div>
+    <div class="addon-label"><span>Album</span><input type="checkbox" class="addon" data-price="50"></div>
+    <div class="addon-label"><span>Trailer</span><input type="checkbox" class="addon" data-price="40"></div>
+    <div class="addon-label"><span>Photobooth</span><input type="checkbox" class="addon" data-price="30"></div>
+    <div class="addon-label"><span>Extra Time</span><input type="checkbox" class="addon" data-price="25"></div>
+    <div class="addon-label"><span>Flashes</span><input type="checkbox" class="addon" data-price="15"></div>
+    <div class="addon-label"><span>A4 Print</span><input type="checkbox" class="addon" data-price="5"></div>
+    <div class="addon-label"><span>A6 Print</span><input type="checkbox" class="addon" data-price="10"></div>
+    <div class="addon-label"><span>A1 Framed</span><input type="checkbox" class="addon" data-price="12"></div>
+    <div class="addon-label"><span>A2 Framed</span><input type="checkbox" class="addon" data-price="10"></div>
+    <div class="addon-label"><span>A3 Framed</span><input type="checkbox" class="addon" data-price="8"></div>
+  </div>
+
+  <button type="button" onclick="calculatePrice()">Calculate Price</button>
+  <div id="priceSummary"></div>
+</form>
+</section>
+
+<section id="gallery">
+<h2>Our Gallery</h2>
+<div class="media-grid" id="mediaGrid">
+  <img src="https://via.placeholder.com/400x300.png?text=Wedding" alt="Wedding">
+  <img src="https://via.placeholder.com/400x300.png?text=Portrait" alt="Portrait">
+</div>
+</section>
+
+<section id="explore">
+<h2>Explore Photographers</h2>
+<div id="photographersList">
+  <div class="photographer">
+    <h3>MK RUNNER PHOTOGRAPHY</h3>
+    <p>Shoot Types: Wedding, Portrait, Music, Trips, Indoors, Outdoors</p>
+    <p>Reviews: ★★★★☆</p>
+  </div>
+  <div class="photographer">
+    <h3>Photographer 1</h3>
+    <p>Shoot Types: Portrait, Events</p>
+    <p>Reviews: ★★★☆☆</p>
+  </div>
+</div>
+</section>
+
+<section id="dashboard">
+<h2>Dashboard</h2>
+<p>Admin/Photographer features:</p>
+<ul>
+<li>View bookings & client emails</li>
+<li>Upload gallery images/videos</li>
+<li>Manage packages & pricing</li>
+<li>See reviews & ratings</li>
+</ul>
+</section>
+
+<footer>
+<p>&copy; 2025 MK RUNNER PHOTOGRAPHY | Email: mikemumanyi69@gmail.com</p>
+</footer>
+
+<script>
+function calculatePrice(){
+  const packageType = document.getElementById('package').value;
+  const numPhotos = parseInt(document.getElementById('numPhotos').value);
+  const numPhotogs = parseInt(document.getElementById('numPhotogs').value);
+  const shootDate = new Date(document.getElementById('shootDate').value);
+  const distance = parseFloat(document.getElementById('distance').value);
+
+  let basePrice = 0;
+  switch(packageType){
+    case 'wedding': basePrice = 250; break;
+    case 'portrait': basePrice = 80; break;
+    case 'commercial': basePrice = 150; break;
+    default: basePrice = 100; break;
+  }
+
+  let extraPhotos = numPhotos>50 ? Math.floor((numPhotos-50)/5)*1 : 0;
+  let extraPhotogs = numPhotogs>1 ? (numPhotogs-1)*30 : 0;
+  let distanceFee = distance>20 ? (distance-20)*0.5 : 0;
+
+  let addonElems = document.querySelectorAll('.addon');
+  let addOns = 0;
+  addonElems.forEach(el => { if(el.checked) addOns += parseFloat(el.dataset.price); });
+
+  let today = new Date();
+  let earlyBookingDiscount = ((shootDate-today)/(1000*60*60*24)>=90)?0.05*(basePrice+extraPhotos+extraPhotogs+addOns+distanceFee):0;
+  let websiteDiscount = 0.10*(basePrice+extraPhotos+extraPhotogs+addOns+distanceFee-earlyBookingDiscount);
+
+  let finalPrice = basePrice+extraPhotos+extraPhotogs+addOns+distanceFee-earlyBookingDiscount-websiteDiscount;
+
+  document.getElementById('priceSummary').innerHTML = `
+    <h3>Price Summary</h3>
+    Shoot Date: ${shootDate.toDateString()}<br>
+    Base Price: $${basePrice.toFixed(2)}<br>
+    Extra Photos: $${extraPhotos.toFixed(2)}<br>
+    Extra Photographers: $${extraPhotogs.toFixed(2)}<br>
+    Add-ons: $${addOns.toFixed(2)}<br>
+    Distance Fee: $${distanceFee.toFixed(2)}<br>
+    Early Booking Discount: -$${earlyBookingDiscount.toFixed(2)}<br>
+    Website Booking Discount: -$${websiteDiscount.toFixed(2)}<br>
+    <strong>Final Price: $${finalPrice.toFixed(2)}</strong><br>
+    <p>Thank you for booking through MK RUNNER PHOTOGRAPHY!</p>
+  `;
+}
+</script>
+
+</body>
+</html>
